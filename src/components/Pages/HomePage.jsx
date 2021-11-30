@@ -1,9 +1,10 @@
 import React from 'react';
+import Tables from '../Tables';
 
 const HomePage = () => {
 	return (
-		<div>
-			
+		<div className="bg-dark ">
+			<Tables/>
 		</div>
 	);
 };

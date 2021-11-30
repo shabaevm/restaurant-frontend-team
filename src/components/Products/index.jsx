@@ -14,7 +14,7 @@ const Products = () => {
 	}, [dispatch]);
 
 	return (
-		<div className="container">
+		<div className="container bg-dark">
 			<div className="row justify-content-around">
 				{products.map((product) => {
 				return (

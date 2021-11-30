@@ -8,10 +8,10 @@ const Products = () => {
 	const dispatch = useDispatch();
 	const products = useSelector((state) => state.products.productsList);
 	console.log(products)
-
-	useEffect(() => {
-		dispatch(loadProducts());
-	}, [dispatch]);
+	//
+	// useEffect(() => {
+	// 	dispatch(loadProducts());
+	// }, [dispatch]);
 
 	return (
 		<div className="container bg-dark">

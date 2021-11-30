@@ -1,12 +1,25 @@
 const initialState = {
-  tables: [],
+  items: [
+
+  ],
   loading: false,
+  isAvailable: true,
 };
 
 export const tableReducer = (state = initialState, action) => {
   switch (action.type) {
-    case '':
-      return;
+    case 'tables/load/pending':
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case 'tables/load/fulfilled':
+      return {
+        ...state,
+        items: action.payload,
+        loading: false
+      }
     default:
       return state;
   }

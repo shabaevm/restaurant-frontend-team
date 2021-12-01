@@ -3,9 +3,9 @@
   margin: 0 auto;
 }
 
-.homePageImage {
+.PageImage {
   background: url('../../images/bg.jpg') no-repeat center top / cover;
-	height: 100vh;
+	min-height: 100vh;
 	padding: 57px;
 }
 
@@ -59,7 +59,7 @@ header .elementMenu {
 
 .offer {
   text-transform: uppercase;
-  margin-top: 168px;
+  margin-top: 110px;
   text-align: center;
 }
 
@@ -68,7 +68,7 @@ header .elementMenu {
   text-align: center;
   font-size: 30px;
   letter-spacing: 0.1em;
-  margin-bottom: 125px;
+  margin-bottom: 90px;
 	color: #fff;
 }
 
@@ -153,4 +153,11 @@ p {
   100% {
     transform: translate(-10px, -10px);
   }
+}
+
+.main{
+  margin: auto;
+  width: 1200px;
+  margin-top: 30px;
+  background-color: rgba(0, 0, 0, .51);
 }

@@ -15,7 +15,7 @@ const Tables = () => {
 
 	return (
 
-		<div className="container bg-dark " id='bottom'>
+		<div className="container bg-dark " id='reserved'>
 		<div className="row justify-content-around ">
 			{tables.map((item) => {
 				return(

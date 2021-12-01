@@ -28,7 +28,7 @@ const Products = () => {
     <>
       {loading ? <div>Loading ...</div> :
         <div className="container bg-dark text-center">
-          <input className="w-25" placeholder=" поиск еды..." onChange={handleChange}/>
+          <input className="w-25 " placeholder=" Поиск еды ..." onChange={handleChange}/>
           <div className="row justify-content-around">
             {filteredProducts.map((product) => {
               return (

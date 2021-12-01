@@ -1,0 +1,40 @@
+.AboutUs {
+  margin-top: 30px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  color: goldenrod;
+}
+
+.textBlock {
+  width: 50%;
+  overflow: scroll;
+}
+
+.imageBlock {
+  width: 45%;
+}
+
+.title {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+.underTitle {
+  font-size: 20px;
+  color: white;
+  margin: 20px 0 0 52px;
+}
+
+.nameTitle {
+  font-size: 50px;
+  color: white;
+  margin-left: 50px;
+}
+
+.image {
+  height: 400px;
+}

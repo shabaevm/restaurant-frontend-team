@@ -8,8 +8,9 @@ import cl from '../Header/header.module.css'
 const HomePage = () => {
 	return (
 		<div className="bg-dark ">
-			<div className={cl.homePageImage}>
+			<div className={cl.PageImage}>
 				<Header />
+
 				<div className={cl.offer}>
 					<div><img src={welcome} alt='' className={cl.welcome}/></div>
 					<p>Halal - ощущения, за которыми стоит охотиться!</p>

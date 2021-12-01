@@ -2,6 +2,8 @@ import React from 'react';
 import img_1 from '../../images/halal-logo.png'
 import cl from './header.module.css'
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 const Header = () => {
 	const loading = useSelector(state => state.tables.loading)
@@ -12,14 +14,14 @@ const Header = () => {
 					<div className={cl.wrapLogo}><img src={img_1} alt='' className={cl.logo}/></div>
 					<ul className={cl.menu}>
 						<li>
-							<a className={cl.elementMenu} href='#'>
+							<NavLink className={cl.elementMenu} to='/about'>
 								О ресторане
-							</a>
+							</NavLink>
 						</li>
 						<li>
-							<a className={cl.elementMenu} href="#">
+							<NavLink className={cl.elementMenu} to="/contacts">
 								Контакты
-							</a>
+							</NavLink>
 						</li>
 						<li><i className={ `bi bi-box-arrow-in-right ${cl.imgRegistration}`}></i></li>
 					</ul>

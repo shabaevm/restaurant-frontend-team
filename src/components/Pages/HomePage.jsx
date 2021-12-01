@@ -7,8 +7,9 @@ import cl from '../Header/header.module.css'
 const HomePage = () => {
 	return (
 		<div className="bg-dark ">
-			<div className={cl.homePageImage}>
+			<div className={cl.PageImage}>
 				<Header />
+
 				<div className={cl.offer}>
 					<h1>
 						WELCOME

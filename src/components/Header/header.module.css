@@ -3,9 +3,9 @@
   margin: 0 auto;
 }
 
-.homePageImage {
+.PageImage {
   background: url('../../images/bg.jpg') no-repeat center top / cover;
-	height: 100vh;
+	min-height: 100vh;
 	padding: 57px;
 }
 
@@ -154,3 +154,4 @@ p {
     transform: translate(-10px, -10px);
   }
 }
+

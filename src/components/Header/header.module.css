@@ -4,7 +4,7 @@
 }
 
 .header {
-  background: url('../../images/bg.jpg') no-repeat center top / cover;
+  background: url("../../images/bg.jpg") no-repeat center top / cover;
   padding-top: 57px;
   color: #fff;
   padding-bottom: 322px;
@@ -75,7 +75,7 @@ header .elementMenu {
   font-size: 100px;
   margin-bottom: 19px;
   margin-top: -9px;
-  letter-spacing: 0.02em
+  letter-spacing: 0.02em;
 }
 
 .btn {
@@ -102,7 +102,7 @@ span {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   text-align: justify;
   line-height: 1.62em;

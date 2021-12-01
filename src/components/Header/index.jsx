@@ -3,10 +3,6 @@ import img_1 from '../../images/halal-logo.png'
 import cl from './header.module.css'
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-<<<<<<< HEAD
-=======
-import { Nav } from 'react-bootstrap';
->>>>>>> 6a4a8fb9aa7168f943bc579cf1aae6645c475cc5
 
 const Header = () => {
 	const loading = useSelector(state => state.tables.loading)

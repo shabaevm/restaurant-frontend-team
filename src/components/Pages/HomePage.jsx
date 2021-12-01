@@ -22,6 +22,7 @@ const HomePage = () => {
 			</div>
 			<Tables/>
 			<Products />
+			<Footer />
 		</div>
 	);
 };

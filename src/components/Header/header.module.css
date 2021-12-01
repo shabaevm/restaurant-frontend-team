@@ -1,14 +1,12 @@
 .container {
-  width: 1170px;
+  width: 100%;
   margin: 0 auto;
 }
 
-.header {
-  background: url("../../images/bg.jpg") no-repeat center top / cover;
-  padding-top: 57px;
-  color: #fff;
-  padding-bottom: 322px;
-  height: 100vh;
+.homePageImage {
+  background: url('../../images/bg.jpg') no-repeat center top / cover;
+	height: 100vh;
+	padding: 57px;
 }
 
 header .elementMenu {
@@ -16,13 +14,15 @@ header .elementMenu {
 }
 
 .logo {
-  margin-right: 780px;
-  width: 50px;
-  padding: 5px;
+  width: 100%;
+}
+.wrapLogo{
+	width: 39px;
 }
 
 .menu {
   display: flex;
+	align-items: center;
 }
 
 .menu li .elementMenu {
@@ -36,13 +36,13 @@ header .elementMenu {
   border-bottom: 2px solid #fff;
   padding-bottom: 3px;
   color: #fff;
-}
+}	
 
 .imgRegistration {
   width: 30px;
   cursor: pointer;
-  padding-right: 5px;
   font-size: 25px;
+	color: white;
 }
 
 .menu li {
@@ -52,14 +52,14 @@ header .elementMenu {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.51);
-  padding-right: 10px;
+	padding: 10px 0 10px 39px;
 }
 
 .offer {
   text-transform: uppercase;
-  margin-top: 236px;
+  margin-top: 168px;
   text-align: center;
 }
 
@@ -68,7 +68,8 @@ header .elementMenu {
   text-align: center;
   font-size: 30px;
   letter-spacing: 0.1em;
-  margin-bottom: 50px;
+  margin-bottom: 125px;
+	color: #fff;
 }
 
 .offer h1 {
@@ -76,6 +77,7 @@ header .elementMenu {
   margin-bottom: 19px;
   margin-top: -9px;
   letter-spacing: 0.02em;
+	color: #fff;
 }
 
 .btn {
@@ -102,7 +104,7 @@ span {
 }
 
 p {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   text-align: justify;
   line-height: 1.62em;
@@ -111,7 +113,7 @@ p {
 .arrow,
 .arrow:before {
   position: absolute;
-  left: 50%
+  left: 50%;
 }
 
 .arrow {
@@ -141,11 +143,14 @@ p {
   animation-name: arrow;
 }
 
-@keyframes arrow{
-  0% {opacity: 1}
-  100% {opacity: 0}
-  100%{transform: translate(-10px, -10px)}
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-10px, -10px);
+  }
 }
-
-
-

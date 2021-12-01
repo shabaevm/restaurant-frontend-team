@@ -8,35 +8,22 @@ const Header = () => {
 	return (
 		<>
 			{loading ? <div>Loading...</div> :
-				<div className={cl.header}>
-					<div className={cl.container}>
-						<div className={cl.nav}>
-							<img src={img_1} alt='' className={cl.logo}/>
-							<ul className={cl.menu}>
-								<li>
-									<a className={cl.elementMenu} href='#'>
-										О ресторане
-									</a>
-								</li>
-								<li>
-									<a className={cl.elementMenu} href="#">
-										Контакты
-									</a>
-								</li>
-							</ul>
-							<i className={ `bi bi-box-arrow-in-right ${cl.imgRegistration}`}></i>
-						</div>
-						<div className={cl.offer}>
-							<h1>
-								WELCOME
-							</h1>
-							<p>Halal - ощущения, за которыми стоит охотиться!</p>
-							<li>
-								<a href="#bottom" className={cl.btn}>Забронировать</a>
-								<div className={cl.arrow}></div>
-							</li>
-						</div>
-					</div>
+				<div className={cl.nav}>
+					<div className={cl.wrapLogo}><img src={img_1} alt='' className={cl.logo}/></div>
+					<ul className={cl.menu}>
+						<li>
+							<a className={cl.elementMenu} href='#'>
+								О ресторане
+							</a>
+						</li>
+						<li>
+							<a className={cl.elementMenu} href="#">
+								Контакты
+							</a>
+						</li>
+						<li><i className={ `bi bi-box-arrow-in-right ${cl.imgRegistration}`}></i></li>
+					</ul>
+					
 				</div>
 			}
 		</>

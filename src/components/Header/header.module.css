@@ -31,12 +31,13 @@ header .elementMenu {
   letter-spacing: 0.1em;
 }
 
-.menu li .elementMenu:hover{
+.menu li .elementMenu:hover {
   border-bottom: 2px solid #000;
-	padding-bottom: 3px;
+  padding-bottom: 3px;
+  color: black;
 }
 
-#imgRegistration{
+#imgRegistration {
   width: 30px;
   cursor: pointer;
   padding-right: 5px;
@@ -52,7 +53,7 @@ header .elementMenu {
   justify-content: end;
   background-color: #fff;
   opacity: 0.5;
-	padding-right: 10px;
+  padding-right: 10px;
 }
 
 .offer {
@@ -86,6 +87,7 @@ header .elementMenu {
   transition: all 0.5s ease;
   margin: auto;
   color: white;
+  background-color: rgba(0, 0, 0, 0.51);
 }
 
 .btn:hover {
@@ -93,7 +95,7 @@ header .elementMenu {
   color: #000;
 }
 
-span{
+span {
   font-size: 30px;
 }
 
@@ -103,3 +105,6 @@ p {
   text-align: justify;
   line-height: 1.62em;
 }
+
+
+

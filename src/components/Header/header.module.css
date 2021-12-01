@@ -1,48 +1,10 @@
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Anton', sans-serif;
-  color: black;
-  font-size: 16px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  padding: 0;
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: bolder;
-  font-family: Century;
-  background-color: rgba(0, 0, 0, 0.51);
-  font-size: 10px;
-}
-
-a{
-  text-decoration: none;
-  color: black;
-
-}
-
-p {
-  margin: 0;
-}
-
-ul, li {
-  display: block;
-  padding: 0;
-  margin: 0;
-}
-
 .container {
   width: 1170px;
   margin: 0 auto;
 }
 
 .header {
-  background: url('../../images/bg.jpg') no-repeat center top / cover;
+  background: url("../../images/bg.jpg") no-repeat center top / cover;
   padding-top: 57px;
   color: #fff;
   padding-bottom: 322px;
@@ -67,17 +29,20 @@ header .elementMenu {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.1em;
+  color: #fff;
 }
 
-.menu li .elementMenu:hover{
-  border-bottom: 2px solid #000;
-	padding-bottom: 3px;
+.menu li .elementMenu:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 3px;
+  color: #fff;
 }
 
-#imgRegistration{
+.imgRegistration {
   width: 30px;
   cursor: pointer;
   padding-right: 5px;
+  font-size: 25px;
 }
 
 .menu li {
@@ -88,9 +53,8 @@ header .elementMenu {
   display: flex;
   align-items: center;
   justify-content: end;
-  background-color: #fff;
-  opacity: 0.5;
-	padding-right: 10px;
+  background-color: rgba(0, 0, 0, 0.51);
+  padding-right: 10px;
 }
 
 .offer {
@@ -101,6 +65,7 @@ header .elementMenu {
 
 .offer p {
   background-color: rgba(0, 0, 0, 0.51);
+  text-align: center;
   font-size: 30px;
   letter-spacing: 0.1em;
   margin-bottom: 100px;
@@ -110,7 +75,7 @@ header .elementMenu {
   font-size: 100px;
   margin-bottom: 19px;
   margin-top: -9px;
-  letter-spacing: 0.02em
+  letter-spacing: 0.02em;
 }
 
 .btn {
@@ -124,6 +89,7 @@ header .elementMenu {
   transition: all 0.5s ease;
   margin: auto;
   color: white;
+  background-color: rgba(0, 0, 0, 0.51);
 }
 
 .btn:hover {
@@ -131,15 +97,13 @@ header .elementMenu {
   color: #000;
 }
 
-span{
+span {
   font-size: 30px;
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   text-align: justify;
   line-height: 1.62em;
 }
-
-

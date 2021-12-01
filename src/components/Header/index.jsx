@@ -1,5 +1,5 @@
 import React from 'react';
-import img_1 from '../../images/halal.png'
+import img_1 from '../../images/halal-logo.png'
 import img_2 from '../../images/regisrt-photo.png'
 import cl from './header.module.css'
 import { useSelector } from 'react-redux';
@@ -25,7 +25,7 @@ const Header = () => {
 									</a>
 								</li>
 							</ul>
-							<img className={cl.elementMenu} id={cl.imgRegistration} src={img_2}/>
+							<i className={ `bi bi-box-arrow-in-right ${cl.imgRegistration}`}></i>
 						</div>
 						<div className={cl.offer}>
 							<h1>

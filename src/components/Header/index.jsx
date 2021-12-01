@@ -1,6 +1,5 @@
 import React from 'react';
 import img_1 from '../../images/halal-logo.png'
-import img_2 from '../../images/regisrt-photo.png'
 import cl from './header.module.css'
 import { useSelector } from 'react-redux';
 
@@ -34,7 +33,7 @@ const Header = () => {
 							<p>Halal - ощущения, за которыми стоит охотиться!</p>
 							<li>
 								<a href="#bottom" className={cl.btn}>Забронировать</a>
-								<span>⬇ ⬇ ⬇</span>
+								<div className={cl.arrow}></div>
 							</li>
 						</div>
 					</div>

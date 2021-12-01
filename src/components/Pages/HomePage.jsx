@@ -2,6 +2,7 @@ import React from 'react';
 import Tables from '../Tables';
 import Header from '../Header';
 import Products from '../Products';
+import Footer from '../Footer';
 import cl from '../Header/header.module.css'
 
 const HomePage = () => {
@@ -22,6 +23,7 @@ const HomePage = () => {
 			</div>
 			<Tables/>
 			<Products />
+			<Footer />
 		</div>
 	);
 };

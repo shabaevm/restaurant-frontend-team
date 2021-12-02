@@ -5,6 +5,7 @@
 
 .PageImage {
   background: url('../../images/bg.jpg') no-repeat center top / cover;
+  background-attachment: fixed;
 	min-height: 100vh;
 	padding: 57px;
 }

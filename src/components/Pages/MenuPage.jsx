@@ -1,17 +1,17 @@
 import React from 'react';
-import AboutUs from '../About/AboutUs';
 import Header from '../Header';
+import Menu from '../Menu/Menu';
 import cl from '../Header/header.module.css';
 import Footer from '../Footer';
 
-const AboutUsPages = () => {
+const MenuPage = () => {
   return (
     <div className={cl.PageImage}>
-      <Header />
-      <AboutUs />
-      <Footer />
+      <Header/>
+      <Menu/>
+      <Footer/>
     </div>
   );
 };
 
-export default AboutUsPages;
+export default MenuPage;

@@ -17,6 +17,11 @@ const Header = () => {
           </NavLink>
           <ul className={cl.menu}>
             <li>
+              <NavLink className={cl.elementMenu} to="/menu">
+                Меню
+              </NavLink>
+            </li>
+            <li>
               <NavLink className={cl.elementMenu} to="/about">
                 О ресторане
               </NavLink>

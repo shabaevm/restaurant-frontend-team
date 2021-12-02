@@ -1,6 +1,7 @@
 import React from 'react';
 import Tables from '../Tables';
 import Header from '../Header';
+import Footer from '../Footer';
 import Products from '../Products';
 import welcome from "../../images/welcome.png"
 import cl from '../Header/header.module.css'

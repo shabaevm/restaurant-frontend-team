@@ -27,6 +27,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink className={cl.elementMenu} to="/news">
+                Новости
+              </NavLink>
+            </li>
+            <li>
               <i
                 className={`bi bi-box-arrow-in-right ${cl.imgRegistration}`}
               ></i>

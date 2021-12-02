@@ -1,0 +1,23 @@
+.newsMainBlock {
+  width: 70%;
+  margin: auto;
+  color: white;
+  padding: 30px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.51);
+}
+
+.newsCard {
+  display: flex;
+  min-height: 300px;
+  justify-content: space-between;
+}
+
+.titleBlock {
+  min-height: 100px;
+}
+
+.newsImage {
+  width: 400px;
+}
+

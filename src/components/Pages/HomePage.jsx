@@ -4,7 +4,7 @@ import Header from '../Header';
 import Products from '../Products';
 import welcome from "../../images/welcome.png"
 import cl from '../Header/header.module.css'
-import Footer from '../Footer';
+import Footer from '../Footer'
 
 const HomePage = () => {
 	return (

@@ -18,6 +18,7 @@ header .elementMenu {
 }
 .wrapLogo{
 	width: 39px;
+  border: none;
 }
 
 .menu {
@@ -33,9 +34,8 @@ header .elementMenu {
 }
 
 .menu li .elementMenu:hover {
-  border-bottom: 2px solid #fff;
-  padding-bottom: 3px;
   color: #fff;
+  border-bottom: 3px solid white;
 }	
 
 .imgRegistration {
@@ -155,9 +155,9 @@ p {
   }
 }
 
-.main{
-  margin: auto;
-  width: 1200px;
-  margin-top: 30px;
-  background-color: rgba(0, 0, 0, .51);
-}
+/*.main{*/
+/*  margin: auto;*/
+/*  width: 1200px;*/
+/*  margin-top: 30px;*/
+/*  background-color: rgba(0, 0, 0, .51);*/
+/*}*/

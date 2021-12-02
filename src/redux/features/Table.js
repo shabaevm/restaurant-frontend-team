@@ -2,6 +2,8 @@ const initialState = {
   items: [],
   loading: false,
   isAvailable: true,
+  userInTable: [],
+  error: null,
 };
 
 export const tableReducer = (state = initialState, action) => {
@@ -16,7 +18,24 @@ export const tableReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
+        userInTable: action.payload.user,
         loading: false,
+      };
+    case "tables/addUser/pending":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "tables/addUser/fulfilled":
+      return {
+        ...state,
+        userInTable: action.payload,
+        loading: false,
+
+      };
+    case "tables/addUser/rejected":
+      return {
+        ...state,
       };
     default:
       return state;
@@ -34,5 +53,24 @@ export const loadTables = () => {
           payload: tables,
         });
       });
+  };
+};
+export const addUserInTable = (id) => {
+  return async (dispatch) => {
+    dispatch({ type: "tables/addUser/pending" });
+    const response = await fetch(`http://localhost:4000/tables/addUser/${id}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    const json = await response.json();
+
+    if (json.error) {
+      dispatch({ type: "tables/addUser/rejected", error: json.error });
+    } else {
+      dispatch({ type: "tables/addUser/fulfilled", payload: json });
+    }
   };
 };

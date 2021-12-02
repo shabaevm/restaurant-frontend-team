@@ -16,6 +16,7 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         modalShow: false,
+        error: null,
       };
     case "auth/signup/pending":
       return {

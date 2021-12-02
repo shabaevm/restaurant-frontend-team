@@ -5,17 +5,17 @@ const initialState = {
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'products/load/pending':
+    case "products/load/pending":
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     case "products/load/fulfilled":
       return {
         ...state,
         productsList: action.payload,
-        loading: false
-      }
+        loading: false,
+      };
     default:
       return state;
   }
@@ -23,14 +23,14 @@ export const productReducer = (state = initialState, action) => {
 
 export const loadProducts = () => {
   return (dispatch) => {
-    dispatch({ type: 'products/load/pending' });
-    fetch('http://localhost:4000/products')
-    .then((res) => res.json())
-    .then((products) => {
-      dispatch({
-        type: 'products/load/fulfilled',
-        payload: products,
+    dispatch({ type: "products/load/pending" });
+    fetch("http://localhost:4000/products")
+      .then((res) => res.json())
+      .then((products) => {
+        dispatch({
+          type: "products/load/fulfilled",
+          payload: products,
+        });
       });
-    });
   };
 };

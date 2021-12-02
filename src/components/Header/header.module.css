@@ -4,10 +4,10 @@
 }
 
 .PageImage {
-  background: url('../../images/bg.jpg') no-repeat center top / cover;
+  background: url("../../images/bg.jpg") no-repeat center top / cover;
   background-attachment: fixed;
-	min-height: 100vh;
-	padding: 57px;
+  min-height: 100vh;
+  padding: 57px;
 }
 
 header .elementMenu {
@@ -17,14 +17,14 @@ header .elementMenu {
 .logo {
   width: 100%;
 }
-.wrapLogo{
-	width: 39px;
+.wrapLogo {
+  width: 39px;
   border: none;
 }
 
 .menu {
   display: flex;
-	align-items: center;
+  align-items: center;
 }
 
 .menu li .elementMenu {
@@ -37,13 +37,13 @@ header .elementMenu {
 .menu li .elementMenu:hover {
   color: #fff;
   border-bottom: 3px solid white;
-}	
+}
 
 .imgRegistration {
   width: 30px;
   cursor: pointer;
   font-size: 25px;
-	color: white;
+  color: white;
 }
 
 .menu li {
@@ -55,7 +55,7 @@ header .elementMenu {
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.51);
-	padding: 10px 0 10px 39px;
+  padding: 10px 0 10px 39px;
 }
 
 .offer {
@@ -70,7 +70,7 @@ header .elementMenu {
   font-size: 30px;
   letter-spacing: 0.1em;
   margin-bottom: 90px;
-	color: #fff;
+  color: #fff;
 }
 
 .offer h1 {
@@ -78,7 +78,7 @@ header .elementMenu {
   margin-bottom: 19px;
   margin-top: -9px;
   letter-spacing: 0.02em;
-	color: #fff;
+  color: #fff;
 }
 
 .btn {
@@ -105,7 +105,7 @@ span {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   text-align: justify;
   line-height: 1.62em;
@@ -130,7 +130,7 @@ p {
 }
 
 .arrow:before {
-  content: '';
+  content: "";
   width: 20px;
   height: 20px;
   top: 50%;

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import cl from "./modal.module.css";
-import {authUser, createUser} from '../../redux/features/Auth'
+import Form from "react-bootstrap/Form";
+import {authUser, createUser} from "../../redux/features/Auth";
 
 const Modals = () => {
-	const dispatch = useDispatch()
-
-	const signing = useSelector(state => state.auth.signing)
-	const error = useSelector(state=> state.auth.error)
-	const token = useSelector(state => state.auth.token)
+  const dispatch = useDispatch();
+  const modalShow = useSelector((state) => state.auth.modalShow);
+  const signing = useSelector(state => state.auth.signing)
+  const error = useSelector(state=> state.auth.error)
+  const token = useSelector(state => state.auth.token)
 
   const [login, setLogin] = useState();
   const [password, setPassword] = useState();
-	const [changeModal, setChangeModal] = useState(false)
+  const [changeModal, setChangeModal] = useState(false);
 
   const handleChangeLogin = (ev) => {
     setLogin(ev.target.value);
@@ -22,150 +24,107 @@ const Modals = () => {
     setPassword(ev.target.value);
   };
 
-	const handleSubmit = () => {
-		dispatch(createUser(login, password))
-		setLogin('')
-		setPassword('')
-	}
+  const handleSubmit = () => {
+    dispatch(createUser(login, password));
+    setLogin("");
+    setPassword("");
+  };
 
-	const handleAuth = () => {
-		dispatch(authUser(login, password))
-		setLogin('')
-		setPassword('')
-	}
+  const handleAuth = () => {
+    dispatch(authUser(login, password));
+    if (token){
+      dispatch({ type: "modalShow/changeFalse" })
+    }
+    setLogin("");
+    setPassword("");
+  };
 
-	const handleChangeModal = () =>{
-		setChangeModal(!changeModal)
-	}
+  const handleChangeModal = () => {
+    setChangeModal(!changeModal);
+  };
+
+  const handleClose = () => dispatch({ type: "modalShow/changeFalse" });
+
   return (
-		<div>
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-				{changeModal ? 
-				<div className="modal-dialog">
-				<div className="modal-content">
-					<span>{error}</span>
-					<div className="modal-header">
-						<h5 className="modal-title" id="exampleModalLabel">
-							Авторизация!
-						</h5>
-						<button
-							type="button"
-							className="btn-close"
-							data-bs-dismiss="modal"
-							aria-label="Close"
-						></button>
-					</div>
-					<div className="modal-body">
-						<form>
-							<div className="mb-3">
-								<label htmlFor="recipient-name" className="col-form-label">
-									Логин:
-								</label>
-								<input
-									type="text"
-									className="form-control rounded  border-2"
-									id="recipient-name"
-									value={login}
-									onChange={handleChangeLogin}
-								/>
-							</div>
-							<div className="mb-3">
-								<label htmlFor="message-text" className="col-form-label ">
-									Пароль:
-								</label>
-								<input
-									type="password"
-									className="form-control rounded border-2"
-									id="recipient-name"
-									value={password}
-									onChange={handleChangePassword}
-								/>
-							</div>
-						</form>
-					</div>
-					<div className="modal-footer" >
-						<button
-							type="button"
-							className="btn btn-secondary"
-							disabled={signing}
-							onClick={handleChangeModal}
-						>
-							Зарегистрироваться
-						</button>
-						<button type="button" className="btn btn-success " onClick={handleAuth}  data-bs-dismiss={token ? "modal" : ""}>
-								Войти
-						</button>
-					</div >
-				</div>
-			</div>
-			:
-			<div className="modal-dialog">
-          <div className="modal-content">
-						<span>{error}</span>
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Регистрация!
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="recipient-name" className="col-form-label">
-                    Логин:
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control rounded  border-2"
-                    id="recipient-name"
-                    value={login}
-                    onChange={handleChangeLogin}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="message-text" className="col-form-label ">
-                    Пароль:
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control rounded border-2"
-                    id="recipient-name"
-                    value={password}
-                    onChange={handleChangePassword}
-                  />
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-								disabled={signing}
-								onClick={handleChangeModal}
-              >
-                Вы уже зарегистрированы?
-              </button>
-              <button type="button" className="btn btn-success " onClick={handleSubmit}>
-                Зарегистрироваться
-              </button>
-            </div>
-          </div>
-        </div>
-			}
-      </div>
-    </div>
-	)
+    <>
+      {changeModal ?
+        <Modal show={modalShow} onHide={handleClose} centered="true">
+          <Modal.Header closeButton>
+            <Modal.Title>Авторизация</Modal.Title>
+          </Modal.Header>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Login</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Login"
+              value={login}
+              onChange={handleChangeLogin}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChangePassword}
+            />
+            {error}
+          </Form.Group>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              disabled={signing}
+              onClick={handleChangeModal}
+            >
+              Вы не зарегистрированы?
+            </Button>
+            <Button variant="primary" onClick={handleAuth}>
+              Авторизоваться
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        : //==========================================================================================================
+        <Modal show={modalShow} onHide={handleClose} centered="true">
+          <Modal.Header closeButton>
+            <Modal.Title>Регистрация</Modal.Title>
+          </Modal.Header>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Login</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Login"
+              value={login}
+              onChange={handleChangeLogin}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={handleChangePassword}
+            />
+            {error}
+          </Form.Group>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              disabled={signing}
+              onClick={handleChangeModal}
+            >
+              Вы уже зарегистрированы?
+            </Button>
+            <Button variant="primary" onClick={handleSubmit}>
+              Зарегистрироваться
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      }
+
+    </>
+  );
 };
 
 export default Modals;

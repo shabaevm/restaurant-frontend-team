@@ -1,9 +1,9 @@
-::placeholder{
+::placeholder {
   padding: 10px;
   font-style: italic;
 }
-input{
+input {
   border: none;
-border-radius: 3px;
+  border-radius: 3px;
   margin-bottom: 40px;
 }

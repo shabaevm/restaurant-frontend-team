@@ -39,7 +39,7 @@ const Contacts = () => {
         <a href="http://instagram.com/eltmirov.95" target="_blank" className={cl.message}>Написать нам</a>
       </div>
       <div>
-        <h2>
+        <h2 className={cl.h2}>
           Схема проезда в ресторан Halal
         </h2>
       </div>

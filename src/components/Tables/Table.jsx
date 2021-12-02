@@ -22,7 +22,7 @@ const Table = ({ tableNumber, tableCapacity }) => {
         </h4>
         <button
           href="#"
-          className="btn btn-outline-danger w-100"
+            className="btn btn-outline-danger w-100"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           data-bs-whatever="@getbootstrap"

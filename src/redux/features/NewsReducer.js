@@ -5,17 +5,17 @@ const initialState = {
 
 export const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'news/load/pending':
+    case "news/load/pending":
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     case "news/load/fulfilled":
       return {
         ...state,
         newsList: action.payload,
-        loading: false
-      }
+        loading: false,
+      };
     default:
       return state;
   }
@@ -23,14 +23,14 @@ export const newsReducer = (state = initialState, action) => {
 
 export const loadNews = () => {
   return (dispatch) => {
-    dispatch({ type: 'news/load/pending' });
-    fetch('http://localhost:4000/news')
-    .then((res) => res.json())
-    .then((news) => {
-      dispatch({
-        type: 'news/load/fulfilled',
-        payload: news,
+    dispatch({ type: "news/load/pending" });
+    fetch("http://localhost:4000/news")
+      .then((res) => res.json())
+      .then((news) => {
+        dispatch({
+          type: "news/load/fulfilled",
+          payload: news,
+        });
       });
-    });
   };
 };

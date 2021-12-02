@@ -1,10 +1,16 @@
 import React from "react";
-import cl from "./table.module.css";
 import Modals from "../Modals/index";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const Table = ({ tableNumber, tableCapacity }) => {
-	const token = useSelector(state => state.auth.token)
+  const dispatch = useDispatch()
+  const token = useSelector((state) => state.auth.token);
+
+  const handleChangeModal = () => {
+    dispatch({
+      type: 'modalShow/changeTrue'
+    })
+  }
 
   return (
     <div className="card col-sm-5 m-2 shadow p-3 mb-5 bg-body rounded ">
@@ -22,16 +28,15 @@ const Table = ({ tableNumber, tableCapacity }) => {
         </h4>
         <button
           href="#"
-            className="btn btn-outline-danger w-100"
+          className="btn btn-outline-danger w-100"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
           data-bs-whatever="@getbootstrap"
+          onClick={!token && (handleChangeModal)}
         >
           ЗАБРОНИРОВАТЬ
         </button>
+        {!token && <Modals />}
       </div>
-				{!token &&
-				<Modals />}
     </div>
   );
 };

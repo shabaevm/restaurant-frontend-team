@@ -6,18 +6,18 @@ const initialState = {
 
 export const tableReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'tables/load/pending':
+    case "tables/load/pending":
       return {
         ...state,
         loading: true,
-      }
+      };
 
-    case 'tables/load/fulfilled':
+    case "tables/load/fulfilled":
       return {
         ...state,
         items: action.payload,
-        loading: false
-      }
+        loading: false,
+      };
     default:
       return state;
   }
@@ -25,12 +25,12 @@ export const tableReducer = (state = initialState, action) => {
 
 export const loadTables = () => {
   return (dispatch) => {
-    dispatch({ type: 'tables/load/pending' });
-    fetch('http://localhost:4000/tables')
+    dispatch({ type: "tables/load/pending" });
+    fetch("http://localhost:4000/tables")
       .then((res) => res.json())
       .then((tables) => {
         dispatch({
-          type: 'tables/load/fulfilled',
+          type: "tables/load/fulfilled",
           payload: tables,
         });
       });

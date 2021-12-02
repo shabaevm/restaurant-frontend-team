@@ -18,6 +18,7 @@ const Tables = () => {
           return (
             <Table
               key={item._id}
+              id={item._id}
               tableNumber={item.tableNumber}
               tableCapacity={item.tableCapacity}
             />

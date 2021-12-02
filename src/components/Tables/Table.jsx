@@ -1,8 +1,9 @@
 import React from "react";
 import Modals from "../Modals/index";
 import {useDispatch, useSelector} from "react-redux";
+import {addUserInTable} from "../../redux/features/Table";
 
-const Table = ({ tableNumber, tableCapacity }) => {
+const Table = ({ id, tableNumber, tableCapacity }) => {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.auth.token);
 
@@ -10,6 +11,10 @@ const Table = ({ tableNumber, tableCapacity }) => {
     dispatch({
       type: 'modalShow/changeTrue'
     })
+  }
+
+  const handleAddProduct = () => {
+    dispatch(addUserInTable(id))
   }
 
   return (
@@ -31,7 +36,7 @@ const Table = ({ tableNumber, tableCapacity }) => {
           className="btn btn-outline-danger w-100"
           data-bs-toggle="modal"
           data-bs-whatever="@getbootstrap"
-          onClick={!token && (handleChangeModal)}
+          onClick={!token ? handleChangeModal : handleAddProduct}
         >
           ЗАБРОНИРОВАТЬ
         </button>

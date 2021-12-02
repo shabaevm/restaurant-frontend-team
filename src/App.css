@@ -27,6 +27,7 @@ h1 {
 a{
   text-decoration: none;
   color: black;
+  padding-bottom: 5px;
 
 }
 
@@ -38,4 +39,8 @@ ul, li {
   display: block;
   padding: 0;
   margin: 0;
+}
+.active {
+  padding-bottom: 5px;
+  border-bottom: 3px solid white;
 }

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import cl from "./table.module.css";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import Modals from "../Modals/index";
+import { useSelector } from "react-redux";
+
 const Table = ({ tableNumber, tableCapacity }) => {
+	const token = useSelector(state => state.auth.token)
+
   return (
     <div className="card col-sm-5 m-2 shadow p-3 mb-5 bg-body rounded ">
       <img
@@ -20,7 +22,7 @@ const Table = ({ tableNumber, tableCapacity }) => {
         </h4>
         <button
           href="#"
-          className="btn btn-outline-danger w-100"
+            className="btn btn-outline-danger w-100"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           data-bs-whatever="@getbootstrap"
@@ -28,7 +30,8 @@ const Table = ({ tableNumber, tableCapacity }) => {
           ЗАБРОНИРОВАТЬ
         </button>
       </div>
-      <Modals />
+				{!token &&
+				<Modals />}
     </div>
   );
 };

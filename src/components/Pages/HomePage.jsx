@@ -1,9 +1,10 @@
-import React from "react";
-import Tables from "../Tables";
-import Header from "../Header";
-import Products from "../Products";
-import welcome from "../../images/welcome.png";
-import cl from "../Header/header.module.css";
+import React from 'react';
+import Tables from '../Tables';
+import Header from '../Header';
+import Products from '../Products';
+import welcome from "../../images/welcome.png"
+import cl from '../Header/header.module.css'
+import Footer from '../Footer'
 
 const HomePage = () => {
   return (

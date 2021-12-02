@@ -1,5 +1,6 @@
 import "./App.css";
 import ContactsPage from "./components/Pages/ContactsPage";
+import NewsPages from './components/Pages/NewsPages';
 import { Route, Routes } from "react-router";
 import HomePage from "./components/Pages/HomePage";
 import React from "react";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/about" element={<AboutUsPages />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/news" element={<NewsPages />} />
       </Routes>
     </div>
   );

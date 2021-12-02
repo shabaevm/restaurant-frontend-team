@@ -1,3 +1,4 @@
+import { newsReducer } from './features/NewsReducer';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { tableReducer } from './features/Table';
@@ -9,6 +10,7 @@ export const store = createStore(
   combineReducers({
     tables: tableReducer,
     products: productReducer,
+    news: newsReducer,
     auth: authReducer,
   }),
   composeWithDevTools(applyMiddleware(thunk))

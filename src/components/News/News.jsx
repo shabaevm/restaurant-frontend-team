@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadNews } from "../../redux/features/NewsReducer";
 import cl from "../News/news.module.css";
-import ReadMoreReact from "read-more-react";
 
 const News = () => {
 
   const dispatch = useDispatch();
   const news = useSelector((state) => state.news.newsList);
+  const loading = useSelector(state => state.news.loading)
 
   const ReadMore = ({ children }) => {
     const text = children;
@@ -30,6 +30,10 @@ const News = () => {
   }, [dispatch]);
 
   return (
+    <>
+    {loading ?
+        (<div className={cl.loader}>Loading...</div>)
+     : (
     <div className={cl.around}>
       {news.map((news) => {
         return (
@@ -51,7 +55,10 @@ const News = () => {
         );
       })}
     </div>
-  );
+
+  )}
+    </>
+      );
 };
 
 export default News;

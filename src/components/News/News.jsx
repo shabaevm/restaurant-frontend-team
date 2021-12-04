@@ -5,8 +5,25 @@ import cl from "../News/news.module.css";
 import ReadMoreReact from "read-more-react";
 
 const News = () => {
+
   const dispatch = useDispatch();
   const news = useSelector((state) => state.news.newsList);
+
+  const ReadMore = ({ children }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+    return (
+      <p className="text">
+        {isReadMore ? text.slice(0, 150) : text}
+        <span onClick={toggleReadMore} className="read-or-hide">
+        {isReadMore ? "...подробнее" : "...скрыть"}
+      </span>
+      </p>
+    );
+  };
 
   useEffect(() => {
     dispatch(loadNews());
@@ -24,12 +41,9 @@ const News = () => {
               <div className={cl.titleBlock}>
                 <h4> {news.title} </h4>
                 <div className={cl.textBlock}>
-                  <ReadMoreReact
-                    text={news.text}
-                    ideal={100}
-                    max={news.text.length}
-                    readMoreText="...подробнее"
-                  />
+                  <ReadMore>
+                    {news.text}
+                  </ReadMore>
                 </div>
               </div>
             </div>

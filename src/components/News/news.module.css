@@ -31,10 +31,10 @@
   font-size: 20px;
 }
 
-div.read-more-button {
-  color: red;
-}
-
-.displayed-text {
-  color: red !important;
+.textBlock span  {
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+  color: lightyellow;
+  text-decoration: underline;
 }

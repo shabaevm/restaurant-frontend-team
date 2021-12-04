@@ -2,10 +2,15 @@ import React from "react";
 import Modals from "../Modals/index";
 import {useDispatch, useSelector} from "react-redux";
 import {addUserInTable} from "../../redux/features/Table";
+import styles from './table.module.css'
 
 const Table = ({ id, tableNumber, tableCapacity }) => {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.auth.token);
+  const userId = useSelector((state) => state.auth.userId);
+  const bookedTable = useSelector((state) => state.tables.bookedTable);
+  const signingOut = useSelector((state) => state.auth.signingOut)
+
 
   const handleChangeModal = () => {
     dispatch({
@@ -14,6 +19,7 @@ const Table = ({ id, tableNumber, tableCapacity }) => {
   }
 
   const handleAddProduct = () => {
+    console.log(userId);
     dispatch(addUserInTable(id))
   }
 
@@ -32,15 +38,15 @@ const Table = ({ id, tableNumber, tableCapacity }) => {
           Стульев: {tableCapacity}
         </h4>
         <button
-          href="#"
-          className="btn btn-outline-danger w-100"
+          className={`btn btn-outline-danger w-100 ${!token ? '' : bookedTable.includes(id) ? styles.booked : ''}`}
+          disabled={bookedTable.includes(id) ? true : false}
           data-bs-toggle="modal"
           data-bs-whatever="@getbootstrap"
           onClick={!token ? handleChangeModal : handleAddProduct}
         >
-          ЗАБРОНИРОВАТЬ
+          {bookedTable.includes(id) ? 'ВЫБРАН' : 'ЗАБРОНИРОВАТЬ'}
         </button>
-        {!token && <Modals />}
+        {/*{!token && !signingOut && <Modals />}*/}
       </div>
     </div>
   );

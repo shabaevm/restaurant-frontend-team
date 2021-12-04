@@ -7,10 +7,12 @@ import React from "react";
 import AboutUsPages from "./components/Pages/AboutUsPages";
 import MenuPage from "./components/Pages/MenuPage";
 import Modals from "./components/Modals";
+import Cart from './components/Cart';
 
 function App() {
   return (
     <div className="App">
+      <Cart />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />

@@ -16,6 +16,7 @@ export const productReducer = (state = initialState, action) => {
         productsList: action.payload,
         loading: false,
       };
+
     default:
       return state;
   }
@@ -34,3 +35,5 @@ export const loadProducts = () => {
       });
   };
 };
+
+

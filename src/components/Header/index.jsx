@@ -1,11 +1,31 @@
 import React from "react";
 import img_1 from "../../images/halal-logo.png";
+import Modals from "../Modals/index";
 import cl from "./header.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const token = useSelector((state) => state.auth.token);
   const loading = useSelector((state) => state.tables.loading);
+  const dispatch = useDispatch()
+  const signingOut = useSelector((state) => state.auth.signingOut)
+
+  const handleChangeModal = () => {
+    dispatch({
+      type: 'modalShow/changeTrue'
+    })
+  }
+  const logOut = async () => {
+    await dispatch({
+      type: 'tables/user/logout'
+    })
+    await dispatch({
+      type: 'user/logout'
+    })
+    localStorage.removeItem("token")
+    window.location.reload();
+  }
   return (
     <>
       {loading ? (
@@ -37,13 +57,15 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <i
-                className={`bi bi-box-arrow-in-right ${cl.imgRegistration}`}
-              ></i>
+              <a
+                onClick={!token ? handleChangeModal : logOut}
+                className={`bi ${!token ? 'bi-box-arrow-in-right' : 'bi-person-check'} ${cl.imgRegistration}`}
+              ></a>
             </li>
           </ul>
         </div>
       )}
+      {!token && !signingOut && <Modals />}
     </>
   );
 };

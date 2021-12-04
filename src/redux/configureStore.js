@@ -5,6 +5,7 @@ import { tableReducer } from "./features/Table";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { productReducer } from "./features/Product";
 import { authReducer } from "./features/Auth";
+import { logger } from 'redux-logger/src';
 
 export const store = createStore(
   combineReducers({
@@ -13,5 +14,5 @@ export const store = createStore(
     news: newsReducer,
     auth: authReducer,
   }),
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(thunk, logger))
 );

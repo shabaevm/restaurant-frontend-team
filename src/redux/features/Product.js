@@ -23,16 +23,16 @@ export const productReducer = (state = initialState, action) => {
 };
 
 export const loadProducts = () => {
-  return (dispatch) => {
-    dispatch({ type: "products/load/pending" });
-    fetch("http://localhost:4000/products")
-      .then((res) => res.json())
-      .then((products) => {
-        dispatch({
-          type: "products/load/fulfilled",
-          payload: products,
-        });
+  return async (dispatch) => {
+    await dispatch({ type: "products/load/pending" });
+    await fetch("http://localhost:4000/products")
+    .then(async (res) => await res.json())
+    .then(async (products) => {
+      await dispatch({
+        type: "products/load/fulfilled",
+        payload: products,
       });
+    });
   };
 };
 

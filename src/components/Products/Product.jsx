@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const Product = ({ id, name, img, price }) => {
   const cart = useSelector((state) => state.tables.cart)
   const token = useSelector((state) => state.auth.token);
+  const bookings = useSelector((state) => state.bookings.items)
   const isInCart = cart.cartItems.map((cartItem) => cartItem.productId).includes(id) ? true : false
   const dispatch = useDispatch()
 
@@ -24,8 +25,8 @@ const Product = ({ id, name, img, price }) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text fw-bold">{price}₽</p>
-        <button disabled={isInCart} onClick={!token ? handleChangeModal : () => handleAddToCart(id)} className="btn btn-warning w-100">
-          {isInCart ? 'В заказе' : 'Заказать'}
+        <button disabled={bookings || isInCart} onClick={!token ? handleChangeModal : () => handleAddToCart(id)} className="btn btn-warning w-100">
+          {bookings ? 'НЕДОСТУПНО' : isInCart ? 'В заказе' : 'Заказать'}
         </button>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Product from "./Product";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProducts } from "../../redux/features/Product";
+import { loadBooking } from '../../redux/features/Booking';
 
 const Products = () => {
   const [input, setInput] = useState("");
@@ -10,8 +11,10 @@ const Products = () => {
   const products = useSelector((state) => state.products.productsList);
   const loading = useSelector((state) => state.products.loading);
 
+
   useEffect(() => {
     dispatch(loadProducts());
+
   }, [dispatch]);
 
   const filteredProducts = products.filter((item) => {
@@ -19,6 +22,9 @@ const Products = () => {
   });
 
   const handleChange = (e) => {
+    if (e.target.value.indexOf('\\') !== -1) {
+      return
+    }
     setInput(e.target.value);
   };
 
@@ -30,8 +36,9 @@ const Products = () => {
         <div className="container bg-dark text-center">
           <input
             className="w-25 "
-            placeholder=" Поиск еды ..."
+            placeholder="Поиск еды ..."
             onChange={handleChange}
+            value={input}
           />
           <div className="row justify-content-around">
             {filteredProducts.map((product) => {

@@ -39,7 +39,6 @@ export const tableReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-
     case "tables/load/fulfilled":
       return {
         ...state,
@@ -57,13 +56,17 @@ export const tableReducer = (state = initialState, action) => {
     case "tables/addUser/fulfilled":
       return {
         ...state,
-        userInTable: action.payload,
         loading: false,
-        bookedTable: [...state.bookedTable, action.payload._id]
+        bookedTable: [...state.bookedTable, action.payload]
       };
     case "tables/addUser/rejected":
       return {
         ...state,
+      };
+    case "cart/clean":
+      return {
+        ...state,
+        cart: {...state.cart, cartItems: []}
       };
     case "products/addToCart/fulfilled":
       return {
@@ -107,36 +110,22 @@ export const tableReducer = (state = initialState, action) => {
 
 export const loadTables = (userId) => {
   console.log(userId);
-  return (dispatch) => {
-    dispatch({ type: "tables/load/pending" });
-    fetch("http://localhost:4000/tables")
-      .then((res) => res.json())
-      .then((tables) => {
-        dispatch({
-          type: "tables/load/fulfilled",
-          payload: { tables, userId },
-        });
+  return async (dispatch) => {
+    await dispatch({ type: "tables/load/pending" });
+    await fetch("http://localhost:4000/tables")
+    .then(async (res) => await res.json())
+    .then(async (tables) => {
+      await dispatch({
+        type: "tables/load/fulfilled",
+        payload: { tables, userId },
       });
+    });
   };
 };
 export const addUserInTable = (id) => {
   return async (dispatch) => {
     dispatch({ type: "tables/addUser/pending" });
-    console.log(id);
-    const response = await fetch(`http://localhost:4000/tables/addUser/${id}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-
-    const json = await response.json();
-
-    if (json.error) {
-      dispatch({ type: "tables/addUser/rejected", error: json.error });
-    } else {
-      dispatch({ type: "tables/addUser/fulfilled", payload: json });
-    }
+    dispatch({ type: "tables/addUser/fulfilled", payload: id });
   };
 };
 
@@ -144,4 +133,9 @@ export const addProductToCart = (prodId) => {
   return (dispatch) => {
     dispatch({ type: "products/addToCart/fulfilled", payload: prodId});
   };
+};
+export const cleanCart = () => {
+  return (dispatch) => {
+    dispatch({ type: "cart/clean" });
+  }
 };

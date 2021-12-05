@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Form from "react-bootstrap/Form";
 import {authUser, createUser} from "../../redux/features/Auth";
+import { loadBooking } from '../../redux/features/Booking';
 
 const Modals = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,8 @@ const Modals = () => {
   const signing = useSelector(state => state.auth.signing)
   const error = useSelector(state=> state.auth.error)
   const token = useSelector(state => state.auth.token)
+  const uid = useSelector(state => state.auth.userId)
+
 
   const [login, setLogin] = useState();
   const [password, setPassword] = useState();
@@ -30,8 +33,8 @@ const Modals = () => {
     setPassword("");
   };
 
-  const handleAuth = () => {
-    dispatch(authUser(login, password));
+  const handleAuth = async () => {
+    await dispatch(authUser(login, password));
     if (token){
       dispatch({ type: "modalShow/changeFalse" })
     }

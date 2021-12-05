@@ -8,6 +8,7 @@ const Table = ({ id, tableNumber, tableCapacity }) => {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.auth.token);
   const userId = useSelector((state) => state.auth.userId);
+  const bookings = useSelector((state) => state.bookings.items)
   const bookedTable = useSelector((state) => state.tables.bookedTable);
   const signingOut = useSelector((state) => state.auth.signingOut)
 
@@ -19,7 +20,6 @@ const Table = ({ id, tableNumber, tableCapacity }) => {
   }
 
   const handleAddProduct = () => {
-    console.log(userId);
     dispatch(addUserInTable(id))
   }
 
@@ -39,12 +39,12 @@ const Table = ({ id, tableNumber, tableCapacity }) => {
         </h4>
         <button
           className={`btn btn-outline-danger w-100 ${!token ? '' : bookedTable.includes(id) ? styles.booked : ''}`}
-          disabled={bookedTable.includes(id) ? true : false}
+          disabled={bookings || bookedTable.includes(id)}
           data-bs-toggle="modal"
           data-bs-whatever="@getbootstrap"
           onClick={!token ? handleChangeModal : handleAddProduct}
         >
-          {bookedTable.includes(id) ? 'ВЫБРАН' : 'ЗАБРОНИРОВАТЬ'}
+          {bookings ? 'НЕДОСТУПНО' : bookedTable.includes(id) ? 'ВЫБРАН' : 'ЗАБРОНИРОВАТЬ'}
         </button>
         {/*{!token && !signingOut && <Modals />}*/}
       </div>

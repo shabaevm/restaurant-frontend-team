@@ -19,6 +19,9 @@ const Menu = () => {
   });
 
   const handleChange = (e) => {
+    if (e.target.value.indexOf('\\') !== -1) {
+      return
+    }
     setInput(e.target.value);
   };
 

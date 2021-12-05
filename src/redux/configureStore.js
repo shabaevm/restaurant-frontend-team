@@ -6,6 +6,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { productReducer } from "./features/Product";
 import { authReducer } from "./features/Auth";
 import { logger } from 'redux-logger/src';
+import { bookingReducer } from './features/Booking';
 
 export const store = createStore(
   combineReducers({
@@ -13,6 +14,7 @@ export const store = createStore(
     products: productReducer,
     news: newsReducer,
     auth: authReducer,
+    bookings: bookingReducer
   }),
   composeWithDevTools(applyMiddleware(thunk, logger))
 );

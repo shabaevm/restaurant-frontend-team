@@ -1,9 +1,12 @@
+import { loadBooking } from './Booking';
+
 const initialState = {
   signingUp: false,
   signingOut: false,
   error: null,
   token: localStorage.getItem("token"),
   modalShow: false,
+  userId: localStorage.getItem("userId"),
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -109,6 +112,8 @@ export const authUser = (login, password) => {
       console.log(json);
       dispatch({ type: "auth/signin/fulfilled", payload: json });
       localStorage.setItem("token", json.token);
+      localStorage.setItem("userId", json.userId);
+      dispatch(loadBooking(json.userId));
     }
   };
 };

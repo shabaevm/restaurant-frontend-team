@@ -50,3 +50,6 @@ li {
 .modal-content{
   padding: 14px;
 }
+.wrapper {
+  z-index: 999999;
+}

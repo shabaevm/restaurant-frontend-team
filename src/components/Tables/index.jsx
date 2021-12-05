@@ -6,9 +6,11 @@ import { loadTables } from "../../redux/features/Table";
 const Tables = () => {
   const dispatch = useDispatch();
   const tables = useSelector((state) => state.tables.items);
+  const userId = useSelector((state) => state.auth.userId);
 
   useEffect(() => {
-    dispatch(loadTables());
+    console.log(userId);
+    dispatch(loadTables(userId));
   }, [dispatch]);
 
   return (

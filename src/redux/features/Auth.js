@@ -1,5 +1,6 @@
 const initialState = {
   signingUp: false,
+  signingOut: false,
   error: null,
   token: localStorage.getItem("token"),
   modalShow: false,
@@ -46,6 +47,14 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         signingUp: false,
         token: action.payload.token,
+        userId: action.payload.userId
+      };
+    case "user/logout":
+      return {
+        ...state,
+        signingOut: true,
+        token: null,
+        userId: null
       };
     case "auth/signin/rejected":
       return {
@@ -97,6 +106,7 @@ export const authUser = (login, password) => {
     if (json.error) {
       dispatch({ type: "auth/signin/rejected", error: json.error });
     } else {
+      console.log(json);
       dispatch({ type: "auth/signin/fulfilled", payload: json });
       localStorage.setItem("token", json.token);
     }

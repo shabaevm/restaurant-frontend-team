@@ -12,6 +12,7 @@ const Modals = () => {
   const signing = useSelector(state => state.auth.signing)
   const error = useSelector(state=> state.auth.error)
   const token = useSelector(state => state.auth.token)
+  const successSingUp = useSelector(state => state.auth.successSingUp)
 
   const [login, setLogin] = useState();
   const [password, setPassword] = useState();
@@ -42,6 +43,7 @@ const Modals = () => {
 
   const handleChangeModal = () => {
     setChangeModal(!changeModal);
+    dispatch({type: 'auth/reloadError'})
   };
 
   const handleClose = () => dispatch({ type: "modalShow/changeFalse" });
@@ -54,7 +56,7 @@ const Modals = () => {
             <Modal.Title>Авторизация</Modal.Title>
           </Modal.Header>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Login</Form.Label>
+            <Form.Label style={{marginTop: "8px"}}>Login</Form.Label>
             <Form.Control
               type="text"
               placeholder="Login"
@@ -91,7 +93,7 @@ const Modals = () => {
             <Modal.Title>Регистрация</Modal.Title>
           </Modal.Header>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Login</Form.Label>
+            <Form.Label style={{marginTop: "8px"}}>Login</Form.Label>
             <Form.Control
               type="text"
               placeholder="Login"
@@ -107,8 +109,8 @@ const Modals = () => {
               value={password}
               onChange={handleChangePassword}
             />
-            <Alert variant='warning'>{error}</Alert>
-						{error}
+            {error && <Alert style={{marginTop: '7px'}} variant='danger'>{error}</Alert>}
+            {successSingUp && <Alert style={{marginTop: '7px'}} variant='success'>Вы успешно зарегистрировались</Alert>}
           </Form.Group>
           <Modal.Footer>
             <Button

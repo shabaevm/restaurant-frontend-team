@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Form from "react-bootstrap/Form";
 import {authUser, createUser} from "../../redux/features/Auth";
+import Alert from 'react-bootstrap/Alert'
 
 const Modals = () => {
   const dispatch = useDispatch();
@@ -106,7 +107,8 @@ const Modals = () => {
               value={password}
               onChange={handleChangePassword}
             />
-            {error}
+            <Alert variant='warning'>{error}</Alert>
+						{error}
           </Form.Group>
           <Modal.Footer>
             <Button

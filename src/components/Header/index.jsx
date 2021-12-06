@@ -39,7 +39,7 @@ const Header = () => {
   return (
     <>
       {loading ? (
-        <div>Loading...</div>
+        <div className={cl.loader}>Loading...</div>
       ) : (
         <div className={cl.nav}>
           <NavLink className={cl.wrapLogo} to="/">

@@ -3,6 +3,7 @@ import { loadBooking } from './Booking';
 const initialState = {
   signingUp: false,
   signingOut: false,
+  successSingUp: false,
   error: null,
   token: localStorage.getItem("token"),
   modalShow: false,
@@ -32,6 +33,7 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         signingUp: false,
+        successSingUp: true,
       };
     case "auth/signup/rejected":
       return {
@@ -50,20 +52,26 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         signingUp: false,
         token: action.payload.token,
-        userId: action.payload.userId
+        userId: action.payload.userId,
       };
     case "user/logout":
       return {
         ...state,
         signingOut: true,
         token: null,
-        userId: null
+        userId: null,
       };
     case "auth/signin/rejected":
       return {
         ...state,
         signingUp: false,
         error: action.error,
+      };
+    case "auth/reloadError":
+      return {
+        ...state,
+        error: null,
+        successSingUp: false
       };
     default:
       return state;
